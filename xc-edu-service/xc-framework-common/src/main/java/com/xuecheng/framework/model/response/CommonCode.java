@@ -14,9 +14,12 @@ public enum CommonCode implements ResultCode{
 
     SUCCESS(true,10000,"操作成功！"),
     FAIL(false,11111,"操作失败！"),
+    Cunzai(false,11111,"页面已经存在！"),
     UNAUTHENTICATED(false,10001,"此操作需要登陆系统！"),
     UNAUTHORISE(false,10002,"权限不足，无权操作！"),
-    SERVER_ERROR(false,99999,"抱歉，系统繁忙，请稍后重试！");
+    SERVER_ERROR(false,99999,"抱歉，系统繁忙，请稍后重试！"),
+
+    DELETEBYID(false,123,"删除失败，没有这个用户");
 //    private static ImmutableMap<Integer, CommonCode> codes ;
     //操作是否成功
     boolean success;

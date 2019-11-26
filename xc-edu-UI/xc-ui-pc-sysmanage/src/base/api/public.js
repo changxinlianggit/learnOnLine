@@ -35,6 +35,7 @@ export default {
   //get请求不带参数
   requestQuickGet (url) {
     return new Promise((resolve, reject) => {
+
       axios.get(url).then(res => {
         resolve(res.data)
       }).catch(error => {
