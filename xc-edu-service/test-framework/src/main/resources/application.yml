@@ -1,9 +1,9 @@
 server:
-  port: 31001
+  port: 8088
 spring:
   application:
-    name: xc‐service‐manage‐cms
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017
-      database: xc
+    name: xc‐test-framework
+  freemarker:
+    cache: false #关闭模板缓存
+    settings:
+      template_update_delay: 0 # 这个配置是检查模板更新时间，设置为0便于我们开发，就是隔多长时间去刷新一次页面

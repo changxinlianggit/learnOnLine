@@ -35,7 +35,9 @@ public class ExceptionCatch {
     }
 
     @ExceptionHandler(Exception.class)
+    @ResponseBody
     public ResponseResult exception(Exception e){
+        //打印日志
         LOGGER.error("catch exception : {}\r\nexception: ",e.getMessage(), e);
         //如果说这个map集合里面没有数据，就构建一个
         if(EXCEPTIONS==null){
@@ -52,9 +54,9 @@ public class ExceptionCatch {
 
     }
 
-    static{
-        //在这里加入一些基础的异常类型判断
-        builder.put(HttpMessageNotReadableException.class,CommonCode.SERVER_ERROR);
-    }
+//    static{
+//        //在这里加入一些基础的异常类型判断
+//        builder.put(HttpMessageNotReadableException.class,CommonCode.CANSHU);
+//    }
 
 }

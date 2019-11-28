@@ -25,14 +25,14 @@
       <el-table-column type="index" width="60"></el-table-column>
       <el-table-column prop="pageName" label="页面名称" width="120"></el-table-column>
       <el-table-column prop="pageAliase" label="别名" width="120"></el-table-column>
-      <el-table-column prop="pageType" label="页面类型" width="150"></el-table-column>
+      <el-table-column prop="pageType" label="页面类型" width="120"></el-table-column>
       <el-table-column prop="pageWebPath" label="访问路径" width="250"></el-table-column>
-      <el-table-column prop="pagePhysicalPath" label="物理路径" width="250"></el-table-column>
-      <el-table-column prop="pageCreateTime" label="创建时间" width="180"></el-table-column>
-      <el-table-column label="操作" width="80">
+      <el-table-column prop="pagePhysicalPath" label="物理路径" width="350"></el-table-column>
+      <el-table-column label="操作" width="250">
         <template slot-scope="page">
           <el-button size="small" type="text" @click="edit(page.row.pageId)">编辑</el-button>
           <el-button size="small" type="text" @click="deleteByid(page.row.pageId)">删除</el-button>
+          <el-button @click="preview(page.row.pageId)" type="text" size="small">页面预览</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -122,6 +122,10 @@ export default {
           }
         });
       });
+    },
+    //页面预览
+    preview: function (row){
+      window.open("http://www.xuecheng.com/cms/preview/"+row)
     }
   },
   //钩子函数，当页面渲染完成后调用

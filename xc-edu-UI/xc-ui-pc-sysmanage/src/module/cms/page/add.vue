@@ -70,6 +70,7 @@ export default {
         pageType: "",
         pageCreateTime: new Date()
       },
+      // 表单校验
       pageFormRules: {
         siteId: [{ required: true, message: "请选择站点", trigger: "blur" }],
         templateId: [
@@ -105,7 +106,7 @@ export default {
             });
           });   
         } else {
-          alert("校验失败");
+          this.$message.error("校验失败")
           return false;
         }
       });
