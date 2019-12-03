@@ -23,16 +23,17 @@
     </el-form>
     <el-table :data="list" stripe style="width: 100%">
       <el-table-column type="index" width="60"></el-table-column>
-      <el-table-column prop="pageName" label="页面名称" width="120"></el-table-column>
+      <el-table-column prop="pageName" label="页面名称" width="280"></el-table-column>
       <el-table-column prop="pageAliase" label="别名" width="120"></el-table-column>
-      <el-table-column prop="pageType" label="页面类型" width="120"></el-table-column>
-      <el-table-column prop="pageWebPath" label="访问路径" width="250"></el-table-column>
-      <el-table-column prop="pagePhysicalPath" label="物理路径" width="350"></el-table-column>
-      <el-table-column label="操作" width="250">
+      <el-table-column prop="pageType" label="页面类型" width="100"></el-table-column>
+      <el-table-column prop="pageWebPath" label="访问路径" width="230"></el-table-column>
+      <el-table-column prop="pagePhysicalPath" label="物理路径" width="280"></el-table-column>
+      <el-table-column label="操作" width="150">
         <template slot-scope="page">
-          <el-button size="small" type="text" @click="edit(page.row.pageId)">编辑</el-button>
-          <el-button size="small" type="text" @click="deleteByid(page.row.pageId)">删除</el-button>
-          <el-button @click="preview(page.row.pageId)" type="text" size="small">页面预览</el-button>
+          <el-button size="mini" type="warning" @click="edit(page.row.pageId)">编辑</el-button>
+          <el-button size="mini" type="danger" @click="deleteByid(page.row.pageId)">删除</el-button><br>
+          <el-button @click="preview(page.row.pageId)" type="mini" size="primary">预览</el-button>
+          <el-button @click="postpage(page.row.pageId)" type="mini" size="success">发布</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -126,6 +127,18 @@ export default {
     //页面预览
     preview: function (row){
       window.open("http://www.xuecheng.com/cms/preview/"+row)
+    },
+    //页面发布
+    postpage: function (row){
+      this.$confirm("确认发布吗？", "提示", {}).then(res => {
+        cmsApi.postpage(row).then(spon=>{
+          if(spon.success){
+            this.$message.success("发布成功,请稍后查询检查结果");
+          }else{
+            this.$message.error("发布失败");
+          }
+        })
+      })
     }
   },
   //钩子函数，当页面渲染完成后调用

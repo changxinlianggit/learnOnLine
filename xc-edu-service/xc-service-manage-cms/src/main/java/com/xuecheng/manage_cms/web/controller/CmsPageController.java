@@ -76,4 +76,15 @@ public class CmsPageController implements CmsPageControllerApi {
     public ResponseResult deleteByid(@PathVariable("id") String id) {
         return pageService.deleteByid(id);
     }
+
+    /**
+     * 生成静态化页面文件，然后保存到gridFS中
+     * @param pageId
+     * @return
+     */
+    @PostMapping("/postPage/{pageId}")
+    public ResponseResult post(@PathVariable("pageId") String pageId) {
+        ResponseResult responseResult = pageService.postPage(pageId);
+        return responseResult;
+    }
 }

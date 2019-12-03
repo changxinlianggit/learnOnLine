@@ -11,3 +11,9 @@ spring:
     cache: false  #关闭模板缓存
     settings:
       template_update_delay: 0  # 每0秒刷新一下页面，便于开发
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /

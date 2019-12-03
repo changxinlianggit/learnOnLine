@@ -12,7 +12,6 @@ import java.util.List;
 @Data
 @ToString
 public class TeachplanNode extends Teachplan {
-
     List<TeachplanNode> children;
 
 }

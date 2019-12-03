@@ -28,6 +28,11 @@ export const deleteByid=(pageId) =>{
   return http.requestDelete(apiUrl + '/cms/page/del/' + pageId);
 }
 
+//页面发布
+export const postpage=(pageid)=>{
+  return http.requestPost(apiUrl+'/cms/page/postPage/'+pageid);
+}
+
 
 
 

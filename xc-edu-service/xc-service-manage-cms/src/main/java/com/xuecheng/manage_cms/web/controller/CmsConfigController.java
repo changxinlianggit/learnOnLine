@@ -13,6 +13,9 @@ import com.xuecheng.manage_cms.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 获取模板的数据控制器
+ */
 @RestController
 @RequestMapping("/cms/config")
 public class CmsConfigController implements CmsConfigControllerApi {
